@@ -115,11 +115,23 @@
     if([name isEqualToString:@"appstore"]) {
         NSLog(@"URL opening: %@", info);
         
+        UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+        indicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+        [indicatorView setCenter:CGPointMake([self topMostViewController].view.frame.size.width /2 ,
+                                            [self topMostViewController].view.frame.size.height / 2)];
+        [[[self topMostViewController] view] addSubview:indicatorView];
+        [indicatorView startAnimating];
+        [[[self topMostViewController] view] setUserInteractionEnabled:false];
+        
         SKStoreProductViewController *storeProductViewController = [[SKStoreProductViewController alloc] init];
         
         // Configure View Controller
         [storeProductViewController setDelegate:self];
         [storeProductViewController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier : info} completionBlock:^(BOOL result, NSError *error) {
+            [indicatorView stopAnimating];
+            [indicatorView removeFromSuperview];
+            [[[self topMostViewController] view] setUserInteractionEnabled:true];
+            
             if (error) {
                 NSLog(@"Error %@ with User Info %@.", error, [error userInfo]);
                 

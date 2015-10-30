@@ -39,9 +39,6 @@
 /// The will leave application callback into Unity.
 @property(nonatomic, assign) GADUInterstitialWillLeaveApplicationCallback willLeaveCallback;
 
-
-@property(nonatomic, assign) GADUInterstiticalDidReceiveAppEventCallback didReceiveAppEventCallback;
-
 /// Makes an ad request. Additional targeting options can be supplied with a request object.
 - (void)loadRequest:(GADRequest *)request;
 

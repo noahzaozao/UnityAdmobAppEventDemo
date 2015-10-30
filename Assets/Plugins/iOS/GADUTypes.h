@@ -60,6 +60,3 @@ typedef void (*GADUInterstitialDidDismissScreenCallback)(
 /// Callback for when an application will background or terminate because of an interstitial click.
 typedef void (*GADUInterstitialWillLeaveApplicationCallback)(
     GADUTypeInterstitialClientRef *interstitialClient);
-
-typedef void (*GADUInterstiticalDidReceiveAppEventCallback)(
-    GADUTypeInterstitialClientRef *interstitialClient, const char *name, const char *info);
