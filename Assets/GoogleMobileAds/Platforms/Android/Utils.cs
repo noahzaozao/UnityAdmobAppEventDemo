@@ -14,9 +14,9 @@ namespace GoogleMobileAds.Android
         #region Google Mobile Ads SDK class names
 
         public const string AdListenerClassName = "com.google.android.gms.ads.AdListener";
-        public const string AdRequestClassName = "com.google.android.gms.ads.AdRequest";
+		public const string AdRequestClassName = "com.google.android.gms.ads.doubleclick.PublisherAdRequest";
         public const string AdRequestBuilderClassName =
-                "com.google.android.gms.ads.AdRequest$Builder";
+				"com.google.android.gms.ads.doubleclick.PublisherAdRequest$Builder";
         public const string AdSizeClassName = "com.google.android.gms.ads.AdSize";
         public const string AdMobExtrasClassName =
                 "com.google.android.gms.ads.mediation.admob.AdMobExtras";

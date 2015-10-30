@@ -138,12 +138,14 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
         #if UNITY_EDITOR
             string adUnitId = "unused";
         #elif UNITY_ANDROID
-			string adUnitId = "/168212774/NoahTest";
+			string adUnitId = "/168212774/NoahTestAndroid";
         #elif UNITY_IPHONE
 			string adUnitId = "/168212774/NoahTest";
         #else
             string adUnitId = "unexpected_platform";
         #endif
+
+		Debug.Log("adUnitId: " + adUnitId);
 
         // Create an interstitial.
         interstitial = new InterstitialAd(adUnitId);
