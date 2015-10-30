@@ -154,7 +154,6 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
         interstitial.AdClosing += HandleInterstitialClosing;
         interstitial.AdClosed += HandleInterstitialClosed;
         interstitial.AdLeftApplication += HandleInterstitialLeftApplication;
-		interstitial.AdDidReceiveAppEvent += HandleAdDidReceiveAppEvent;
         GoogleMobileAdsDemoHandler handler = new GoogleMobileAdsDemoHandler();
         interstitial.SetInAppPurchaseHandler(handler);
         // Load an interstitial ad.
@@ -253,11 +252,6 @@ public class GoogleMobileAdsDemoScript : MonoBehaviour
     {
         print("HandleInterstitialLeftApplication event received");
     }
-
-	public void HandleAdDidReceiveAppEvent (object sender, EventArgs e)
-	{
-		print("HandleAdDidReceiveAppEvent event received");
-	}
 
     #endregion
 }

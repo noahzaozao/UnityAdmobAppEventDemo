@@ -15,7 +15,6 @@ namespace GoogleMobileAds.Api
         public event EventHandler<EventArgs> AdClosing = delegate {};
         public event EventHandler<EventArgs> AdClosed = delegate {};
         public event EventHandler<EventArgs> AdLeftApplication = delegate {};
-		public event EventHandler<AdDidReceiveAppEventArgs> AdDidReceiveAppEvent = delegate {};
 
         // Creates an InsterstitialAd.
         public InterstitialAd(string adUnitId)
@@ -84,14 +83,6 @@ namespace GoogleMobileAds.Api
         {
             AdLeftApplication(this, EventArgs.Empty);
         }
-
-		void IAdListener.FireAdAdDidReceiveAppEvent(string name, string info)
-		{
-			AdDidReceiveAppEventArgs args = new AdDidReceiveAppEventArgs();
-			args.Name = name;
-			args.Info = info;
-			AdDidReceiveAppEvent(this, args);
-		}
 
         #endregion
 

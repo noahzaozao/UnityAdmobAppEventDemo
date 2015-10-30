@@ -20,9 +20,6 @@ namespace GoogleMobileAds.iOS
         internal delegate void GADUInterstitialDidDismissScreenCallback(IntPtr interstitialClient);
         internal delegate void GADUInterstitialWillLeaveApplicationCallback(
                 IntPtr interstitialClient);
-		internal delegate void GADUInterstiticalDidReceiveAppEventCallback(
-			IntPtr interstitialClient, string name, string info);
-
 
         #endregion
 
@@ -61,8 +58,7 @@ namespace GoogleMobileAds.iOS
                     InterstitialWillPresentScreenCallback,
                     InterstitialWillDismissScreenCallback,
                     InterstitialDidDismissScreenCallback,
-                    InterstitialWillLeaveApplicationCallback,
-					InterstitialDidReceiveAppEventCallback);
+                    InterstitialWillLeaveApplicationCallback);
         }
 
         public void LoadAd(AdRequest request) {
@@ -150,12 +146,6 @@ namespace GoogleMobileAds.iOS
         {
             IntPtrToInterstitialClient(interstitialClient).listener.FireAdLeftApplication();
         }
-		
-		[MonoPInvokeCallback(typeof(GADUInterstiticalDidReceiveAppEventCallback))]
-		private static void InterstitialDidReceiveAppEventCallback(IntPtr interstitialClient, string name, string info)
-		{
-			IntPtrToInterstitialClient(interstitialClient).listener.FireAdAdDidReceiveAppEvent(name, info);
-		}
 
         private static IOSInterstitialClient IntPtrToInterstitialClient(IntPtr interstitialClient)
         {

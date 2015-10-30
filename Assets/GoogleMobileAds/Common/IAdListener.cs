@@ -11,6 +11,5 @@ namespace GoogleMobileAds.Common
         void FireAdClosing();
         void FireAdClosed();
         void FireAdLeftApplication();
-		void FireAdAdDidReceiveAppEvent(string name, string info);
     }
 }

@@ -85,8 +85,7 @@ namespace GoogleMobileAds.iOS
                 IOSInterstitialClient.GADUInterstitialWillDismissScreenCallback willDismissCallback,
                 IOSInterstitialClient.GADUInterstitialDidDismissScreenCallback didDismissCallback,
                 IOSInterstitialClient.GADUInterstitialWillLeaveApplicationCallback
-                        willLeaveCallback,
-				IOSInterstitialClient.GADUInterstiticalDidReceiveAppEventCallback didReceiveAppEventCallback);
+                        willLeaveCallback);
 
         [DllImport("__Internal")]
         internal static extern bool GADUInterstitialReady(IntPtr interstitial);
@@ -96,7 +95,6 @@ namespace GoogleMobileAds.iOS
 
         [DllImport("__Internal")]
         internal static extern void GADURequestInterstitial(IntPtr interstitial, IntPtr request);
-
 
         #endregion
     }
